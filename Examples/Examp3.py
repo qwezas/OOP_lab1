@@ -1,32 +1,31 @@
-# Использование свойств
 class Rectangle:
-    def __init__(self, width, height):
-        self.__width = width
-        self.__height = height
+    def __init__(self, width: float, height: float) -> None:
+        self.__width: float = width
+        self.__height: float = height
 
     @property
-    def width(self):
+    def width(self) -> float:
         return self.__width
 
     @width.setter
-    def width(self, w):
+    def width(self, w: float) -> None:
         if w > 0:
             self.__width = w
         else:
-            raise ValueError
+            raise ValueError("Width must be positive")
 
     @property
-    def height(self):
+    def height(self) -> float:
         return self.__height
 
     @height.setter
-    def height(self, h):
+    def height(self, h: float) -> None:
         if h > 0:
             self.__height = h
         else:
-            raise ValueError
+            raise ValueError("Height must be positive")
 
-    def area(self):
+    def area(self) -> float:
         return self.__width * self.__height
 
 
@@ -40,5 +39,6 @@ print(rect.width)
 # 50
 print(rect.height)
 # 70
+
 rect.width = -10
 # Выдаст ошибку, так как в сеттере указали условие > 0

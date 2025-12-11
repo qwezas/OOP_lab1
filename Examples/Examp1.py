@@ -1,15 +1,17 @@
-# Элементы класса, использование ключевого слова self
+from typing import ClassVar, List
+
+
 class River:
     # Список всех рек
-    all_rivers = []
+    all_rivers: ClassVar[List["River"]] = []
 
-    def __init__(self, name, length):
-        self.name = name
-        self.length = length
+    def __init__(self, name: str, length: float) -> None:
+        self.name: str = name
+        self.length: float = length
         # Добавляем текущую реку в список всех рек
         River.all_rivers.append(self)
 
-    def get_info(self):
+    def get_info(self) -> None:
         print("Длина реки {0} равна {1} км".format(self.name, self.length))
 
 
